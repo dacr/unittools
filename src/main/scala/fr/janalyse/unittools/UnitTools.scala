@@ -30,6 +30,11 @@ class SizeHelper(value:Long, desc:String) {
 
 
 
+object Duration {
+  implicit def number2Duration[N<%Number](d:N) = new Duration(d.longValue())
+  implicit def string2Duration(str:String) = new Duration(desc2Duration(str))
+}
+
 case class Duration(value:Long) {
   def ms = this
   def s  = Duration(value*1000)
@@ -41,6 +46,12 @@ case class Duration(value:Long) {
   def +(that:Duration) = Duration(value+that.value)
   def -(that:Duration) = Duration(value-that.value)
   def apply(d:Duration) = this + d 
+}
+
+
+object ByteSize {
+  implicit def number2ByteSize[N<%Number](d:N) = new ByteSize(d.longValue())
+  implicit def string2ByteSize(str:String) = new ByteSize(desc2Size(str))
 }
 
 case class ByteSize(value:Long) {

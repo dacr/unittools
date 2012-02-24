@@ -55,6 +55,7 @@ class SelfTest extends FunSuite with ShouldMatchers {
   }
   
   test("duration rewritten") {
+    "1".toDuration.toDurationDesc should equal("1ms")
     "7d".toDuration.toDurationDesc should equal("1w")
     "60m".toDuration.toDurationDesc should equal("1h")
     "3600s".toDuration.toDurationDesc should equal("1h")

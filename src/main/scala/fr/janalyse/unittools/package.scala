@@ -5,8 +5,12 @@ import scala.math._
 package object unittools {
   
   // Implicit conversions
-  implicit def int2Duration(d:Int) = new Duration(d)
-  implicit def int2Duration(d:Long) = new Duration(d)
+  implicit def number2Duration[N<%Number](d:N) = new Duration(d.longValue())
+  implicit def string2Duration(str:String) = new Duration(desc2Duration(str))
+
+  implicit def number2ByteSize[N<%Number](d:N) = new ByteSize(d.longValue())
+  implicit def string2ByteSize(str:String) = new ByteSize(desc2Size(str))
+
   
   implicit def string2DurationHelper(desc:String) = new DurationHelper(desc2Duration(desc), desc)
   implicit def long2DurationHelper(value:Long) = new DurationHelper(value, duration2Desc(value))
