@@ -1,16 +1,18 @@
 name := "unittools"
 
-version := "0.2.1"
+version := "0.2.3"
 
 organization :="fr.janalyse"
 
 organizationHomepage := Some(new URL("http://www.janalyse.fr"))
 
-scalaVersion := "2.9.2"
+scalaVersion := "2.10.0"
 
-crossScalaVersions := Seq("2.8.1", "2.8.2", "2.9.1", "2.9.2")
+crossScalaVersions := Seq("2.8.1", "2.8.2", "2.9.1", "2.9.2", "2.10.0")
 
-libraryDependencies += "org.scalatest" %% "scalatest" % "1.7.2" % "test"
+libraryDependencies ++= Seq(
+    "org.scalatest" %% "scalatest" % "2.0.M5b" % "test"
+)
 
 publishTo := Some(
      Resolver.sftp(
