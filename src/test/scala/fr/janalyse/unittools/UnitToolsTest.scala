@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2012 David Crosson, Inc.
+ * Copyright 2011-2014 David Crosson, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,7 +18,7 @@ package fr.janalyse.unittools
 
 
 import org.scalatest.FunSuite
-import org.scalatest.matchers.ShouldMatchers
+import org.scalatest.ShouldMatchers
 
 import scala.math._
 
@@ -87,8 +87,8 @@ class SelfTest extends FunSuite with ShouldMatchers {
   // NEW test linked to API additions and various enhancements
   
   test("basics") {
-    (5 m).value should equal (60L*1000*5)
-    (3 h).value should equal (3600L*1000*3)
+    (5.m).value should equal (60L*1000*5)
+    (3.h).value should equal (3600L*1000*3)
     (1.m + 1.s).value should equal (61L*1000)
     (1.h + 10.m + 10.s).value should equal (3600L*1000+600*1000+10*1000)
   }

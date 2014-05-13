@@ -67,7 +67,7 @@ package object unittools {
   }
 
   private def desc2Value(desc:String, unitsMap:Map[String,Long]):Long = {
-    val re="""([+-]?\d+)([a-z]+)?"""r
+    val re="""([+-]?\d+)([a-z]+)?""".r
     val values = re.findAllIn(desc) map {_ match {
         case re(n,null)=>n.toLong
         case re(n,unitName) => n.toLong*unitsMap(unitName)
