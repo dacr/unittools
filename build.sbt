@@ -1,19 +1,19 @@
 name := "unittools"
 
-version := "0.2.4"
+version := "0.2.5"
 
 organization :="fr.janalyse"
 
 organizationHomepage := Some(new URL("http://www.janalyse.fr"))
 
-scalaVersion := "2.10.4"
+scalaVersion := "2.10.5"
 
-crossScalaVersions := Seq("2.10.4", "2.11.0")
+crossScalaVersions := Seq("2.10.4", "2.11.6")
 
 scalacOptions ++= Seq( "-deprecation", "-unchecked", "-feature", "-language:implicitConversions")
 
 libraryDependencies ++= Seq(
-    "org.scalatest" %% "scalatest" % "2.1.5" % "test"
+    "org.scalatest" %% "scalatest" % "2.2.1" % "test"
 )
 
 publishTo := Some(
