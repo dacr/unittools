@@ -1,6 +1,6 @@
 name := "unittools"
 
-version := "0.2.5-SNAPSHOT"
+version := "0.2.7-SNAPSHOT"
 
 organization :="fr.janalyse"
 
