@@ -18,11 +18,11 @@ package fr.janalyse.unittools
 
 
 import org.scalatest.FunSuite
-import org.scalatest.ShouldMatchers
+import org.scalatest.Matchers._
 
 import scala.math._
 
-class SelfTest extends FunSuite with ShouldMatchers {
+class SelfTest extends FunSuite {
 
   def selfDurationTest(spec:String) = spec.toDuration.toDurationDesc should equal(spec)
   

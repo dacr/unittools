@@ -1,20 +1,15 @@
 name := "unittools"
 
-version := "0.2.7-SNAPSHOT"
-
 organization :="fr.janalyse"
+homepage := Some(new URL("https://github.com/dacr/unittools"))
 
-organizationHomepage := Some(new URL("http://www.janalyse.fr"))
-
-scalaVersion := "2.10.6"
-
-crossScalaVersions := Seq("2.10.6", "2.11.8")
-
+scalaVersion := "2.11.8"
 scalacOptions ++= Seq( "-deprecation", "-unchecked", "-feature", "-language:implicitConversions")
+crossScalaVersions := Seq("2.10.6", "2.11.8", "2.12.1")
 
 libraryDependencies ++= Seq(
-    "org.scalatest" %% "scalatest" % "2.2.6" % "test"
+    "org.scalatest" %% "scalatest" % "3.0.1" % "test"
 )
 
-publishArtifact in packageDoc := false
+//publishArtifact in packageDoc := false
 
