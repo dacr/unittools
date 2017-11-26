@@ -7,6 +7,8 @@ scalaVersion := "2.12.4"
 scalacOptions ++= Seq( "-deprecation", "-unchecked", "-feature", "-language:implicitConversions")
 crossScalaVersions := Seq("2.10.6", "2.11.11", "2.12.4")
 
+testOptions in Test += Tests.Argument(TestFrameworks.ScalaTest, "-u", "target/junitresults")
+
 libraryDependencies ++= Seq(
     "org.scalatest" %% "scalatest" % "3.0.4" % "test"
 )
