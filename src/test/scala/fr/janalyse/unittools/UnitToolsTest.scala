@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2019 David Crosson, Inc.
+ * Copyright 2011-2020 David Crosson, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,12 +17,12 @@
 package fr.janalyse.unittools
 
 
-import org.scalatest.FunSuite
-import org.scalatest.Matchers._
+import org.scalatest.funsuite._
+import org.scalatest.matchers._
 
 import scala.math._
 
-class SelfTest extends FunSuite {
+class SelfTest extends AnyFunSuite with should.Matchers {
 
   def selfDurationTest(spec:String) = spec.toDuration.toDurationDesc should equal(spec)
   

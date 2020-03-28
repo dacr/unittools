@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2019 David Crosson, Inc.
+ * Copyright 2011-2020 David Crosson, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,6 +16,8 @@
  
 package fr.janalyse.unittools
 
+import scala.reflect.ClassTag
+
 class DurationHelper(value:Long, desc:String) {
   def toDuration()=value
   def toDurationDesc()=desc
@@ -31,7 +33,7 @@ class SizeHelper(value:Long, desc:String) {
 
 
 object Duration {
-  implicit def number2Duration[N<%Number](d:N) = new Duration(d.longValue())
+  implicit def number2Duration[N](d:N)(implicit ev: N => Number) = new Duration(d.longValue())
   implicit def string2Duration(str:String) = new Duration(desc2Duration(str))
 }
 
@@ -50,7 +52,7 @@ case class Duration(value:Long) {
 
 
 object ByteSize {
-  implicit def number2ByteSize[N<%Number](d:N) = new ByteSize(d.longValue())
+  implicit def number2ByteSize[N](d:N)(implicit ev: N => Number) = new ByteSize(d.longValue())
   implicit def string2ByteSize(str:String) = new ByteSize(desc2Size(str))
 }
 

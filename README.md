@@ -1,12 +1,10 @@
-# unittools [![Build Status][travisImg]][travisLink] [![License][licenseImg]][licenseLink] [![Codacy][codacyImg]][codacyLink] [![codecov][codecovImg]][codecovLink]
+# unittools [![Build Status][travisImg]][travisLink] [![License][licenseImg]][licenseLink] [![Maven][mavenImg]][mavenLink] [![Scaladex][scaladexImg]][scaladexLink] [![Codacy][codacyImg]][codacyLink] [![codecov][codecovImg]][codecovLink]
 Some basic unit conversion operation. 
 It Assumes that default units are milliseconds for durations, and bytes for data size.
 
 In your build.sbt, add this :
 
 `libraryDependencies += "fr.janalyse" %% "unittools" % version`
-
-Latest `version`: [![Maven][mavenImg]][mavenLink] [![Scaladex][scaladexImg]][scaladexLink]
 
 ## Usage
 
@@ -47,25 +45,20 @@ Examples coming from the test cases :
   }
 ```
 
-[mavenImg]: https://img.shields.io/maven-central/v/fr.janalyse/unittools_2.12.svg
-[mavenImg2]: https://maven-badges.herokuapp.com/maven-central/fr.janalyse/unittools_2.12/badge.svg
+[mavenImg]: https://img.shields.io/maven-central/v/fr.janalyse/unittools_2.13.svg
 [mavenLink]: https://search.maven.org/#search%7Cga%7C1%7Cfr.janalyse.unittools
 
 [scaladexImg]: https://index.scala-lang.org/dacr/unittools/unittools/latest.svg
 [scaladexLink]: https://index.scala-lang.org/dacr/unittools
 
 [licenseImg]: https://img.shields.io/github/license/dacr/unittools.svg
-[licenseImg2]: https://img.shields.io/:license-apache2-blue.svg
 [licenseLink]: LICENSE
 
 [codacyImg]: https://img.shields.io/codacy/a23d442ea78f40b08e016e2f2fff5709.svg
-[codacyImg2]: https://api.codacy.com/project/badge/grade/a23d442ea78f40b08e016e2f2fff5709
 [codacyLink]: https://www.codacy.com/app/dacr/unittools/dashboard
 
 [codecovImg]: https://img.shields.io/codecov/c/github/dacr/unittools/master.svg
-[codecovImg2]: https://codecov.io/github/dacr/unittools/coverage.svg?branch=master
 [codecovLink]: http://codecov.io/github/dacr/unittools?branch=master
 
 [travisImg]: https://img.shields.io/travis/dacr/unittools.svg
-[travisImg2]: https://travis-ci.org/dacr/unittools.png?branch=master
 [travisLink]:https://travis-ci.org/dacr/unittools
