@@ -21,20 +21,20 @@ import scala.math._
 package object unittools {
   
   // Implicit conversions
-  implicit def number2Duration[N](d:N)(implicit ev: N => Number) = new Duration(d.longValue())
-  implicit def string2Duration(str:String) = new Duration(desc2Duration(str))
+  implicit def number2Duration[N](d:N)(implicit ev: N => Number):Duration = new Duration(ev(d).longValue())
+  implicit def string2Duration(str:String):Duration = new Duration(desc2Duration(str))
 
-  implicit def number2ByteSize[N](d:N)(implicit ev: N => Number) = new ByteSize(d.longValue())
-  implicit def string2ByteSize(str:String) = new ByteSize(desc2Size(str))
+  implicit def number2ByteSize[N](d:N)(implicit ev: N => Number):ByteSize = new ByteSize(ev(d).longValue())
+  implicit def string2ByteSize(str:String):ByteSize = new ByteSize(desc2Size(str))
 
   
-  implicit def string2DurationHelper(desc:String) = new DurationHelper(desc2Duration(desc), desc)
-  implicit def long2DurationHelper(value:Long) = new DurationHelper(value, duration2Desc(value))
-  implicit def string2SizeHelper(desc:String) = new SizeHelper(desc2Size(desc), desc)
-  implicit def long2SizeHelper(value:Long) = new SizeHelper(value, size2Desc(value))
+  implicit def string2DurationHelper(desc:String):DurationHelper = new DurationHelper(desc2Duration(desc), desc)
+  implicit def long2DurationHelper(value:Long):DurationHelper = new DurationHelper(value, duration2Desc(value))
+  implicit def string2SizeHelper(desc:String):SizeHelper = new SizeHelper(desc2Size(desc), desc)
+  implicit def long2SizeHelper(value:Long):SizeHelper = new SizeHelper(value, size2Desc(value))
   
-  implicit def durationHelper2Long(helper:DurationHelper) = helper.toDuration
-  implicit def sizeHelper2Long(helper:SizeHelper) = helper.toSize
+  implicit def durationHelper2Long(helper:DurationHelper):Long = helper.toDuration()
+  implicit def sizeHelper2Long(helper:SizeHelper):Long = helper.toSize()
 
   // Duration unit specification, milliseconds is the default/base unit
   private val durationUnits = List( 

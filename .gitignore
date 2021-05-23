@@ -8,5 +8,6 @@ target/
 .project
 .cache
 .settings
-.DS_Store
-.idea
+.DS_Store/
+.idea/
+.bsp/

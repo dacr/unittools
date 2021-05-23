@@ -24,25 +24,25 @@ import scala.math._
 
 class SelfTest extends AnyFunSuite with should.Matchers {
 
-  def selfDurationTest(spec:String) = spec.toDuration.toDurationDesc should equal(spec)
+  def selfDurationTest(spec:String) = spec.toDuration().toDurationDesc() should equal(spec)
   
   // -------------------------------------------------------------------------------------
   
   test("duration basics") {
-    0.toDurationDesc should equal("0ms")
-    1.toDurationDesc should equal("1ms")
-    3600000.toDurationDesc should equal("1h")
-    10L.toDurationDesc should equal("10ms")
-    "0".toDuration should equal(0)
-    "1ms".toDuration should equal(1)
-    "1h".toDuration should equal(3600L*1000L)
+    0.toDurationDesc() should equal("0ms")
+    1.toDurationDesc() should equal("1ms")
+    3600000.toDurationDesc() should equal("1h")
+    10L.toDurationDesc() should equal("10ms")
+    "0".toDuration() should equal(0)
+    "1ms".toDuration() should equal(1)
+    "1h".toDuration() should equal(3600L*1000L)
   }
   
   test("duration negative values") {
-    (-1).toDurationDesc should equal("-1ms")
-    "-1h".toDuration should equal(-3600000)
-    "-1h10m".toDuration should equal("-50m".toDuration)
-    "1h-5s".toDuration should equal("59m55s".toDuration)
+    (-1).toDurationDesc() should equal("-1ms")
+    "-1h".toDuration() should equal(-3600000)
+    "-1h10m".toDuration() should equal("-50m".toDuration())
+    "1h-5s".toDuration() should equal("59m55s".toDuration())
   }
   
   test("duration more") {
@@ -55,23 +55,23 @@ class SelfTest extends AnyFunSuite with should.Matchers {
   }
   
   test("duration rewritten") {
-    "1".toDuration.toDurationDesc should equal("1ms")
-    "7d".toDuration.toDurationDesc should equal("1w")
-    "60m".toDuration.toDurationDesc should equal("1h")
-    "3600s".toDuration.toDurationDesc should equal("1h")
-    "3600000ms".toDuration.toDurationDesc should equal("1h")
+    "1".toDuration().toDurationDesc() should equal("1ms")
+    "7d".toDuration().toDurationDesc() should equal("1w")
+    "60m".toDuration().toDurationDesc() should equal("1h")
+    "3600s".toDuration().toDurationDesc() should equal("1h")
+    "3600000ms".toDuration().toDurationDesc() should equal("1h")
   }
   
   test("duration monkey tests") {
-    "".toDuration.toDurationDesc should equal("0ms")
-    "gloups".toDuration should equal(0)
+    "".toDuration().toDurationDesc() should equal("0ms")
+    "gloups".toDuration() should equal(0)
   }
   
   test("size basics") {
-    0.toSizeDesc should equal("0b")
-    1.toSizeDesc should equal("1b")
-    "1mb".toSize should equal(pow(1024L,2))
-    "10mb25kb".toSize should equal(10*pow(1024L,2)+25*1024L)
+    0.toSizeDesc() should equal("0b")
+    1.toSizeDesc() should equal("1b")
+    "1mb".toSize() should equal(pow(1024L,2))
+    "10mb25kb".toSize() should equal(10*pow(1024L,2)+25*1024L)
   }
  
   
@@ -87,6 +87,7 @@ class SelfTest extends AnyFunSuite with should.Matchers {
   // NEW test linked to API additions and various enhancements
   
   test("basics") {
+    import fr.janalyse.unittools._
     (5.m).value should equal (60L*1000*5)
     (3.h).value should equal (3600L*1000*3)
     (1.m + 1.s).value should equal (61L*1000)

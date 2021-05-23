@@ -33,8 +33,8 @@ class SizeHelper(value:Long, desc:String) {
 
 
 object Duration {
-  implicit def number2Duration[N](d:N)(implicit ev: N => Number) = new Duration(d.longValue())
-  implicit def string2Duration(str:String) = new Duration(desc2Duration(str))
+  implicit def number2Duration[N <: Number](d:N): Duration = new Duration(d.longValue())
+  implicit def string2Duration(str:String): Duration = new Duration(desc2Duration(str))
 }
 
 case class Duration(value:Long) {
@@ -44,7 +44,7 @@ case class Duration(value:Long) {
   def h  = Duration(m.value*60)
   def d  = Duration(h.value*24)
   def w  = Duration(d.value*7)
-  override def toString = duration2Desc(value)
+  override def toString: String = duration2Desc(value)
   def +(that:Duration) = Duration(value+that.value)
   def -(that:Duration) = Duration(value-that.value)
   def apply(d:Duration) = this + d 
@@ -52,8 +52,8 @@ case class Duration(value:Long) {
 
 
 object ByteSize {
-  implicit def number2ByteSize[N](d:N)(implicit ev: N => Number) = new ByteSize(d.longValue())
-  implicit def string2ByteSize(str:String) = new ByteSize(desc2Size(str))
+  implicit def number2ByteSize[N <: Number](d:N)(implicit ev: N => Number):ByteSize = new ByteSize(d.longValue())
+  implicit def string2ByteSize(str:String):ByteSize = new ByteSize(desc2Size(str))
 }
 
 case class ByteSize(value:Long) {
@@ -62,7 +62,7 @@ case class ByteSize(value:Long) {
   def mb = ByteSize(kb.value*1024)
   def gb = ByteSize(mb.value*1024)
   def tb = ByteSize(gb.value*1024)
-  override def toString = size2Desc(value)
+  override def toString:String = size2Desc(value)
   def +(that:ByteSize) = ByteSize(value+that.value)
   def -(that:ByteSize) = ByteSize(value-that.value)
 }
