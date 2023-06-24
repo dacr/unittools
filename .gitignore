@@ -1,13 +1,20 @@
-*.jar
-*.class
-dist/*
-target/
-*.pscala
+# temporary files
 *~
-.classpath
-.project
-.cache
-.settings
-.DS_Store/
-.idea/
+*.log
+nohup.out
+.attach_pid*
+
+# build related
+target/
+metals.sbt
+
+# IDE related
+.metals/
+.bloop/
 .bsp/
+.vscode/
+.idea/
+.classpath
+.project/
+.cache/
+.settings/
