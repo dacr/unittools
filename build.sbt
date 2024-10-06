@@ -1,5 +1,6 @@
 name         := "unittools"
 organization := "fr.janalyse"
+description  := "Durations and bytes size unit made easy for people"
 
 licenses += "NON-AI-APACHE2" -> url(s"https://github.com/non-ai-licenses/non-ai-licenses/blob/main/NON-AI-APACHE2")
 
